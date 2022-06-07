@@ -55,6 +55,20 @@ let myFunc2 = (multiType: boolOrNum, person: personDetails) => {
   console.log(`First name of the person is", ${person.firstName}, and his sid is ${person.sid}`);
 };
 
+// Tuples - Tuples are fixed length arrays
+const randomArray: [string, number] = ['devarat', 24];
+
+//Enum - constant  variables
+// if we define our enums with const, then our compiler will generate more optimized code
+const enum Size {
+  Small = 24,
+  Medium = 30,
+  Large = 33,
+}
+// numbers default increase by 1 from starting property if not initialized
+let mySize: Size = Size.Medium;
+
+console.log('this is mySize: ', mySize);
 console.log('this is my myArr', myArr);
 console.log('notSure: ', notSure);
 console.log('mixed', mixed);

@@ -33,6 +33,9 @@ let myFunc2 = (multiType, person) => {
     console.log('Value of multiType is ', multiType);
     console.log(`First name of the person is", ${person.firstName}, and his sid is ${person.sid}`);
 };
+const randomArray = ['devarat', 24];
+let mySize = 30;
+console.log('this is mySize: ', mySize);
 console.log('this is my myArr', myArr);
 console.log('notSure: ', notSure);
 console.log('mixed', mixed);
