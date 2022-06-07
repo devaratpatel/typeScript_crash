@@ -43,10 +43,23 @@ const sum = (num1: number, num2: number): number => {
 function add(num1: string, num2: string): string {
   return num1 + num2;
 }
+//Custom Types
+type boolOrNum = boolean | number;
+type personDetails = { firstName: string; sid: boolOrNum };
+/* let myFunc2 = (multiType: boolean | number, person: { firstName: string; sid: boolean | number }) => {};
+instead of using so many unions types, you can declare your own custom types and then replace them in your argument
+*/
+
+let myFunc2 = (multiType: boolOrNum, person: personDetails) => {
+  console.log('Value of multiType is ', multiType);
+  console.log(`First name of the person is", ${person.firstName}, and his sid is ${person.sid}`);
+};
+
 console.log('this is my myArr', myArr);
 console.log('notSure: ', notSure);
 console.log('mixed', mixed);
 console.log('ID:', id);
-console.log(myFunc(90));
+console.log('myFunc =', myFunc(100));
+console.log(myFunc2(21, { firstName: 'devarat', sid: false }));
 
 export {};
