@@ -58,16 +58,34 @@ let myFunc2 = (multiType: boolOrNum, person: personDetails) => {
 // Tuples - Tuples are fixed length arrays
 const randomArray: [string, number] = ['devarat', 24];
 
-//Enum - constant  variables
+//Enum - Represent list of realated constants
 // if we define our enums with const, then our compiler will generate more optimized code
+// numbers default increase by 1 from starting property if not initialized
+
 const enum Size {
   Small = 24,
   Medium = 30,
   Large = 33,
 }
-// numbers default increase by 1 from starting property if not initialized
 let mySize: Size = Size.Medium;
 
+//Objects
+
+const myObj: { readonly id: number; name: string; retire: (date: Date) => void } = {
+  id: 1,
+  name: 'Mosh',
+  // retire: (date: Date) => {
+  //   console.log(date);
+  // },
+  retire(date: Date) {
+    console.log(date);
+  },
+};
+
+// myObj.id = 3; cannot assign because property is read-only
+myObj.name = 'Devarat';
+
+console.log(myObj.retire(new Date(1997, 6, 26)));
 console.log('this is mySize: ', mySize);
 console.log('this is my myArr', myArr);
 console.log('notSure: ', notSure);

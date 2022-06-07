@@ -35,6 +35,15 @@ let myFunc2 = (multiType, person) => {
 };
 const randomArray = ['devarat', 24];
 let mySize = 30;
+const myObj = {
+    id: 1,
+    name: 'Mosh',
+    retire(date) {
+        console.log(date);
+    },
+};
+myObj.name = 'Devarat';
+console.log(myObj.retire(new Date(1997, 6, 26)));
 console.log('this is mySize: ', mySize);
 console.log('this is my myArr', myArr);
 console.log('notSure: ', notSure);
