@@ -1,14 +1,13 @@
 // TypeScript Primitive Types
 
 let id: number = 5;
-//my comments here
 id = 20;
 let company: string = 'Traversy Media';
 let isPublished: boolean = true;
 let words: string = 'zebra';
 let x: any = 'hello';
 x = true;
-let myArr: string[] = [];
+let myArr: string[] = ['guess what'];
 myArr.push('code');
 myArr.push('helps');
 
@@ -23,6 +22,7 @@ objectOne = {
 const myFunc = (side: number) => {
   return side * side;
 };
+
 //  Union Types
 let notSure: string | boolean;
 notSure = 'test';
@@ -35,6 +35,11 @@ mixed.push(23);
 mixed.push('basketball');
 mixed.push(true);
 
+const kgToLbs = (weight: string | number) => {
+  if (typeof weight === 'number') return weight * 2.2;
+  else return parseInt(weight) * 2.2;
+};
+
 //Function Types
 const sum = (num1: number, num2: number): number => {
   return num1 + num2;
@@ -43,6 +48,7 @@ const sum = (num1: number, num2: number): number => {
 function add(num1: string, num2: string): string {
   return num1 + num2;
 }
+
 //Custom Types
 type boolOrNum = boolean | number;
 type personDetails = { firstName: string; sid: boolOrNum };
@@ -71,7 +77,8 @@ let mySize: Size = Size.Medium;
 
 //Objects
 
-const myObj: { readonly id: number; name: string; retire: (date: Date) => void } = {
+type Employee = { readonly id: number; name: string; retire: (date: Date) => void; multiply: (num1: number, num2: number) => number };
+const myObj: Employee = {
   id: 1,
   name: 'Mosh',
   // retire: (date: Date) => {
@@ -80,18 +87,55 @@ const myObj: { readonly id: number; name: string; retire: (date: Date) => void }
   retire(date: Date) {
     console.log(date);
   },
+  multiply(num3: number, num2: number) {
+    return num3 * num2;
+  },
 };
-
 // myObj.id = 3; cannot assign because property is read-only
 myObj.name = 'Devarat';
+console.log(myObj.multiply(2, 3));
 
-console.log(myObj.retire(new Date(1997, 6, 26)));
+//Literal Types
+
+type Quantity = 50 | 100;
+type Metric = 'cm' | 'inch';
+//values must be 50 or 100
+let quanity: Quantity = 100;
+
+//Misc.
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+function greet(person: Person) {
+  return 'Hello ' + person.name;
+}
+
+//Using Custom Types on Array of Objects
+type Users = {
+  name: string;
+  age: number;
+  occupation?: string;
+}[];
+
+let monkey: Users = [
+  { name: 'John Smith', age: 30, occupation: 'Software engineer' },
+  { name: 'Kate Müller', age: 28 },
+];
+
+console.log(greet({ name: 'devarat', age: 20 }));
+
 console.log('this is mySize: ', mySize);
 console.log('this is my myArr', myArr);
 console.log('notSure: ', notSure);
 console.log('mixed', mixed);
 console.log('ID:', id);
 console.log('myFunc =', myFunc(100));
+console.log('add Function', add('10', '20'));
 console.log(myFunc2(21, { firstName: 'devarat', sid: false }));
+console.log(myObj.retire(new Date(1997, 6, 26)));
+console.log('this is my kg:', kgToLbs('10kg'));
 
 export {};
