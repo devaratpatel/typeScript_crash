@@ -1,14 +1,18 @@
 class Invoice {
-    constructor(client, amount, work) {
+    constructor(client, _amount, work) {
         this.client = client;
-        this.amount = amount;
+        this._amount = _amount;
         this.work = work;
     }
     format() {
-        return `${this.client} owes $${this.amount} for work in ${this.work}`;
+        return `${this.client} owes $${this._amount} for work in ${this.work}`;
     }
 }
 const invOne = new Invoice('mario', 250, 'selling paintings');
-console.log(invOne);
+const invTwo = new Invoice('luigi', 7878, 'selling pies');
+let invoiceArray = [];
+invoiceArray.push(invOne);
+invoiceArray.push(invTwo);
+console.log(invoiceArray);
 export {};
 //# sourceMappingURL=classes.js.map
